@@ -1,21 +1,167 @@
 import './Navbar.css';
+import { useAuth } from '../../components/context/AuthContext.jsx';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState, useRef, useEffect } from 'react';
 
 function Navbar() {
+  const { usuario, cerrarSesion } = useAuth();
+  const navigate = useNavigate();
+
+  const [menuAbierto, setMenuAbierto] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const cerrarMenu = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuAbierto(false);
+      }
+    };
+
+    document.addEventListener('mousedown', cerrarMenu);
+
+    return () => {
+      document.removeEventListener('mousedown', cerrarMenu);
+    };
+  }, []);
+
+  const handleLogout = () => {
+    cerrarSesion();
+    setMenuAbierto(false);
+    navigate('/login');
+  };
+
+  const obtenerIniciales = () => {
+    if (!usuario) return '';
+
+    const nombre = usuario.nombre || usuario.usuario || '';
+    const palabras = nombre.trim().split(' ');
+
+    if (palabras.length >= 2) {
+      return `${palabras[0][0]}${palabras[1][0]}`.toUpperCase();
+    }
+
+    return nombre.substring(0, 2).toUpperCase();
+  };
+
   return (
     <header className="navbar">
-      <a className="brand" href="/">
+      <Link className="brand" to="/">
         <span className="brand-mark">☼</span>
-        <span><strong>GAMAR GO</strong><small>— RESORT —</small></span>
-      </a>
-      <nav>
-        <a className="active" href="/">INICIO</a>
-        <a href="/clima">CLIMA</a>
-        <a href="/bebidas">BAR &amp; BEBIDAS</a>
-        <a href="/habitaciones">HABITACIONES</a>
-        <a href="/intranet">INTRANET</a>
+
+        <span className="brand-name">
+          <strong>GAMAR GO</strong>
+          <small>— RESORT —</small>
+        </span>
+      </Link>
+
+      <nav className="navbar-links">
+        <Link className="active" to="/">
+          INICIO
+        </Link>
+
+        <Link to="/clima">
+          CLIMA
+        </Link>
+
+        <Link to="/bebidas">
+          BAR &amp; BEBIDAS
+        </Link>
+
+        <Link to="/habitaciones">
+          HABITACIONES
+        </Link>
+
+        {!usuario && (
+          <Link to="/login">
+            INTRANET
+          </Link>
+        )}
       </nav>
-      <a className="nav-button" href="/intranet">♙ &nbsp; INTRANET</a>
+
+      {!usuario ? (
+        <Link className="nav-button" to="/login">
+          <span>♙</span>
+          INTRANET
+        </Link>
+      ) : (
+        <div className="user-menu-container" ref={menuRef}>
+          <button
+            className={`user-menu-button ${
+              menuAbierto ? 'user-menu-button-open' : ''
+            }`}
+            onClick={() => setMenuAbierto(!menuAbierto)}
+          >
+            <span className="user-avatar">
+              {obtenerIniciales()}
+            </span>
+
+            <span className="user-info">
+              <strong>{usuario.nombre || usuario.usuario}</strong>
+              <small>{usuario.rol || 'Usuario'}</small>
+            </span>
+
+            <span className="user-arrow">
+              {menuAbierto ? '⌃' : '⌄'}
+            </span>
+          </button>
+
+          {menuAbierto && (
+            <div className="user-dropdown">
+              <div className="dropdown-header">
+                <span className="dropdown-avatar">
+                  {obtenerIniciales()}
+                </span>
+
+                <div>
+                  <strong>{usuario.nombre || usuario.usuario}</strong>
+                  <small>{usuario.correo || usuario.usuario}</small>
+                </div>
+              </div>
+
+              <div className="dropdown-divider" />
+
+              <Link
+                className="dropdown-item"
+                to="/intranet"
+                onClick={() => setMenuAbierto(false)}
+              >
+                <span>▦</span>
+                <div>
+                  <strong>Panel principal</strong>
+                  <small>Accede a la intranet</small>
+                </div>
+              </Link>
+
+              <Link
+                className="dropdown-item"
+                to="/perfil"
+                onClick={() => setMenuAbierto(false)}
+              >
+                <span>♙</span>
+                <div>
+                  <strong>Mi perfil</strong>
+                  <small>Consulta tus datos</small>
+                </div>
+              </Link>
+
+              <div className="dropdown-divider" />
+
+              <button
+                className="dropdown-item logout-item"
+                onClick={handleLogout}
+              >
+                <span>↪</span>
+                <div>
+                  <strong>Cerrar sesión</strong>
+                  <small>Salir de tu cuenta</small>
+                </div>
+              </button>
+            </div>
+          )}
+        </div>
+      )}
     </header>
   );
 }
+
 export default Navbar;

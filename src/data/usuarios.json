@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "usuario": "jose",
+    "nombre": "José Manuel",
+    "correo": "jose@gamargo.com",
+    "password": "123456",
+    "rol": "cliente"
+  },
+  {
+    "id": 2,
+    "usuario": "admin",
+    "nombre": "Administrador",
+    "correo": "admin@gamargo.com",
+    "password": "admin123",
+    "rol": "administrador"
+  },
+  {
+    "id": 3,
+    "usuario": "maria",
+    "nombre": "María",
+    "correo": "maria@gamargo.com",
+    "password": "maria123",
+    "rol": "cliente"
+  }
+]

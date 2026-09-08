@@ -1,6 +1,8 @@
-import Navbar from '../../components/Navbar/Navbar';
+ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import habitaciones from '../../data/habitaciones.json';
 import './Home.css';
+import { useState, useEffect } from 'react';
 
 const services = [
   {
@@ -66,6 +68,24 @@ const drinks = [
 ];
 
 function Home() {
+
+  useEffect(() => {
+    // Simulación de carga de datos desde un archivo JSON
+    const cargarDatos = async () => {
+      try {
+        // Aquí podrías hacer una solicitud fetch si los datos estuvieran en un servidor
+        // const response = await fetch('/data/habitaciones.json');
+        // const data = await response.json();
+        // setRooms(data);
+        console.log('Datos de habitaciones cargados:', habitaciones);
+      } catch (error) {
+        console.error('Error al cargar los datos de habitaciones:', error);
+      }
+    };
+
+    cargarDatos();
+  }, []);
+
   return (
     <main className="home">
       <section className="hero">
@@ -127,15 +147,15 @@ function Home() {
           <div className="slider-buttons"><button>‹</button><button>›</button></div>
         </div>
         <div className="rooms-grid">
-          {rooms.map((room) => (
-            <article className="room-card" key={room.name}>
-              <div className="room-image" style={{ backgroundImage: `url(${room.image})` }}>
-                <span className="room-tag">{room.tag}</span>
+          {habitaciones.map((room) => (
+            <article className="room-card" key={room.numero}>
+              <div className="room-image" style={{ backgroundImage: `url(${room.imagen})` }}>
+                <span className="room-tag">{room.balcon}</span>
                 <button className="favorite">♡</button>
               </div>
               <div className="room-body">
                 <h3>{room.name}</h3>
-                <div className="room-meta"><span>♙ {room.guests}</span><span>▱ {room.beds}</span></div>
+                <div className="room-meta"><span>♙ {room.numeroHuespedesMaximo}</span><span>▱ {room.tipoCama}</span></div>
                 <a href="/habitaciones">Ver detalles <b>→</b></a>
               </div>
             </article>

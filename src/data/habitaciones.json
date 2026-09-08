@@ -1,0 +1,30 @@
+[
+  {
+    "numero": "101",
+    "tipoCama": "dos individuales",
+    "numeroHuespedesMaximo": 2,
+    "balcon": "Con balcón",
+    "imagen": "/101.png"
+  },
+  {
+    "numero": "201",
+    "tipoCama": "una queen size",
+    "numeroHuespedesMaximo": 2,
+    "balcon": "Sin balcón",
+    "imagen": "/201.png"
+  },
+  {
+    "numero": "301",
+    "tipoCama": "una King size",
+    "numeroHuespedesMaximo": 3,
+    "balcon": "Con balcón",
+    "imagen": "/301.png"
+  },
+  {
+    "numero": "401",
+    "tipoCama": "dos matrimoniales",
+    "numeroHuespedesMaximo": 4,
+    "balcon": "Sin balcón",
+    "imagen": "/401.png"
+  }
+]

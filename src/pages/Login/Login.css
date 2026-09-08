@@ -1,0 +1,855 @@
+/* =========================================
+   GAMAR GO RESORT — LOGIN
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&family=Allura&display=swap');
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+  --login-navy: #061b30;
+  --login-navy-light: #08283d;
+  --login-teal: #078b96;
+  --login-teal-light: #15a6b0;
+  --login-gold: #d8a23b;
+  --login-gold-light: #e8b955;
+
+  --login-white: #ffffff;
+  --login-text-light: #dce8ee;
+  --login-text-muted: #9fb3c3;
+  --login-border: #27617a;
+}
+
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+
+.login-page {
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+
+  background: var(--login-navy);
+
+  font-family: 'DM Sans', Arial, sans-serif;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   IMAGEN IZQUIERDA
+========================================= */
+
+.login-image {
+  position: relative;
+
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 20, 37, 0.55) 0%,
+      rgba(3, 20, 37, 0.20) 55%,
+      rgba(3, 20, 37, 0.05) 100%
+    ),
+    url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1800&q=90')
+    center / cover;
+
+  color: var(--login-white);
+}
+
+
+/* Oscurecimiento inferior */
+
+.login-image::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    0deg,
+    rgba(3, 20, 37, 0.45),
+    transparent 55%
+  );
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   CONTENIDO DE LA IMAGEN
+========================================= */
+
+.login-overlay {
+  position: relative;
+  z-index: 1;
+
+  height: 100%;
+
+  padding: 80px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* Texto superior */
+
+.login-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 4px;
+
+  color: var(--login-gold);
+}
+
+
+/* GAMAR GO */
+
+.login-image h1 {
+  margin: 22px 0 0;
+
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 5vw, 75px);
+  font-weight: 600;
+  line-height: 0.9;
+
+  letter-spacing: 2px;
+}
+
+
+/* Resort */
+
+.login-script {
+  margin-left: 40px;
+
+  font-family: 'Allura', cursive;
+  font-size: clamp(60px, 5.5vw, 80px);
+  line-height: 1;
+
+  color: var(--login-gold);
+}
+
+
+/* Línea turquesa */
+
+.login-line {
+  width: 50px;
+
+  margin: 25px 0;
+
+  border-top: 2px solid var(--login-teal-light);
+}
+
+
+/* Descripción */
+
+.login-image p {
+  margin: 0;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  color: var(--login-white);
+}
+
+
+/* Frase inferior */
+
+.login-quote {
+  position: absolute;
+  bottom: 70px;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  line-height: 1.5;
+
+  color: var(--login-white);
+}
+
+
+/* =========================================
+   PANEL DERECHO
+========================================= */
+
+.login-form-section {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      #0b3145,
+      transparent 35%
+    ),
+    var(--login-navy);
+}
+
+
+/* Decoración tropical sutil */
+
+.login-form-section::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at 100% 100%,
+      rgba(7, 139, 150, 0.08),
+      transparent 45%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   TARJETA DEL LOGIN
+========================================= */
+
+.login-card {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 500px;
+
+  padding: 45px 55px;
+
+  border: 1px solid #1d5368;
+  border-radius: 18px;
+
+  background: rgba(3, 29, 45, 0.88);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.login-logo {
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-bottom: 25px;
+}
+
+.login-logo > span {
+  font-size: 40px;
+  line-height: 1;
+
+  color: var(--login-gold);
+}
+
+.login-logo strong {
+  display: block;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  color: var(--login-white);
+}
+
+.login-logo small {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-align: center;
+
+  color: var(--login-gold);
+}
+
+
+/* =========================================
+   TITULO
+========================================= */
+
+.login-card h2 {
+  margin: 0;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  font-weight: 500;
+  text-align: center;
+
+  color: var(--login-white);
+}
+
+
+/* Línea dorada */
+
+.login-title-line {
+  width: 45px;
+
+  margin: 22px auto;
+
+  border-top: 3px solid var(--login-gold);
+}
+
+
+/* Descripción */
+
+.login-description {
+  margin: 0 0 35px;
+
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: center;
+
+  color: var(--login-text-muted);
+}
+
+
+/* =========================================
+   FORMULARIO
+========================================= */
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+
+/* Etiquetas */
+
+.input-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  color: var(--login-text-light);
+}
+
+
+/* Contenedor del input */
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  height: 58px;
+
+  padding: 0 17px;
+
+  border: 1px solid var(--login-border);
+  border-radius: 8px;
+
+  background: rgba(10, 52, 72, 0.7);
+
+  transition: 0.25s;
+}
+
+
+/* Efecto al seleccionar */
+
+.input-wrapper:focus-within {
+  border-color: var(--login-teal-light);
+
+  box-shadow: 0 0 0 3px rgba(21, 166, 176, 0.08);
+}
+
+
+/* Icono */
+
+.input-wrapper > span {
+  flex-shrink: 0;
+
+  font-size: 22px;
+
+  color: var(--login-gold);
+}
+
+
+/* Input */
+
+.input-wrapper input {
+  flex: 1;
+  min-width: 0;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 14px;
+
+  color: var(--login-white);
+}
+
+
+/* Placeholder */
+
+.input-wrapper input::placeholder {
+  color: #7893a5;
+}
+
+
+/* Quitar estilos de autocompletado */
+
+.input-wrapper input:-webkit-autofill,
+.input-wrapper input:-webkit-autofill:hover,
+.input-wrapper input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--login-white);
+
+  -webkit-box-shadow: 0 0 0 1000px #0a3448 inset;
+
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+/* =========================================
+   BOTON MOSTRAR CONTRASEÑA
+========================================= */
+
+.password-toggle {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #8da7b7;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.password-toggle:hover {
+  color: var(--login-teal-light);
+}
+
+
+/* =========================================
+   MENSAJE DE ERROR
+========================================= */
+
+.login-error {
+  margin: 5px 0 15px;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #ff8f8f;
+}
+
+
+/* =========================================
+   OPCIONES
+========================================= */
+
+.login-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin: 15px 0 25px;
+
+  font-size: 12px;
+}
+
+
+/* Recordarme */
+
+.login-options label {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: var(--login-text-light);
+
+  cursor: pointer;
+}
+
+.login-options label input {
+  width: 14px;
+  height: 14px;
+
+  accent-color: var(--login-gold);
+
+  cursor: pointer;
+}
+
+
+/* Recuperar contraseña */
+
+.login-options a {
+  color: var(--login-teal-light);
+
+  text-decoration: none;
+
+  transition: 0.25s;
+}
+
+.login-options a:hover {
+  color: #5dd2d8;
+}
+
+
+/* =========================================
+   BOTON INICIAR SESION
+========================================= */
+
+.login-button {
+  width: 100%;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 30px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: var(--login-gold);
+
+  color: #111;
+
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+
+/* Hover */
+
+.login-button:hover:not(:disabled) {
+  background: var(--login-gold-light);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(216, 162, 59, 0.18);
+}
+
+
+/* Click */
+
+.login-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+
+/* Deshabilitado */
+
+.login-button:disabled {
+  opacity: 0.7;
+
+  cursor: not-allowed;
+}
+
+
+/* Flecha */
+
+.login-button span {
+  font-size: 25px;
+  line-height: 1;
+}
+
+
+/* =========================================
+   DIVISOR
+========================================= */
+
+.login-divider {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  margin: 28px 0;
+}
+
+
+/* Líneas */
+
+.login-divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: #28566b;
+}
+
+
+/* Letra o */
+
+.login-divider b {
+  font-size: 12px;
+  font-weight: 400;
+
+  color: var(--login-text-muted);
+}
+
+
+/* =========================================
+   BOTON MICROSOFT
+========================================= */
+
+.microsoft-button {
+  width: 100%;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  border: 1px solid #b9d1dc;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: var(--login-white);
+
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+
+/* Hover */
+
+.microsoft-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+
+  border-color: var(--login-white);
+}
+
+
+/* Icono Microsoft */
+
+.microsoft-button span {
+  font-size: 22px;
+  line-height: 1;
+}
+
+
+/* =========================================
+   FOOTER DEL LOGIN
+========================================= */
+
+.login-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 35px;
+
+  font-size: 12px;
+  text-align: center;
+
+  color: #8fa7b7;
+}
+
+
+/* Icono */
+
+.login-footer span {
+  font-size: 18px;
+
+  color: var(--login-gold);
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .login-page {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .login-overlay {
+    padding: 50px;
+  }
+
+  .login-card {
+    padding: 40px 35px;
+  }
+
+  .login-image h1 {
+    font-size: 55px;
+  }
+
+  .login-script {
+    font-size: 65px;
+  }
+
+  .login-image p {
+    font-size: 17px;
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — CELULAR
+========================================= */
+
+@media (max-width: 900px) {
+
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ocultar imagen */
+
+  .login-image {
+    display: none;
+  }
+
+  /* Panel completo */
+
+  .login-form-section {
+    min-height: 100vh;
+
+    padding: 25px;
+  }
+
+  /* Mostrar logo */
+
+  .login-logo {
+    display: flex;
+  }
+
+  /* Tarjeta */
+
+  .login-card {
+    max-width: 480px;
+
+    padding: 35px 30px;
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — CELULAR PEQUEÑO
+========================================= */
+
+@media (max-width: 480px) {
+
+  .login-form-section {
+    padding: 18px;
+  }
+
+  .login-card {
+    padding: 30px 22px;
+
+    border-radius: 14px;
+  }
+
+  .login-card h2 {
+    font-size: 30px;
+  }
+
+  .login-description {
+    font-size: 13px;
+  }
+
+  .login-options {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+  .login-button {
+    height: 55px;
+  }
+
+  .microsoft-button {
+    font-size: 13px;
+  }
+
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes loginFadeIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+.login-card {
+  animation: loginFadeIn 0.6s ease;
+}
