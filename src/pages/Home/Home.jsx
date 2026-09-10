@@ -3,7 +3,6 @@ import Footer from '../../components/Footer/Footer';
 import habitaciones from '../../data/habitaciones.json';
 import './Home.css';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 
 const services = [
   {
