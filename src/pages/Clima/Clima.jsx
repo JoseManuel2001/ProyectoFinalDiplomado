@@ -168,7 +168,7 @@ const Clima = () => {
                 throw new Error('No se pudo obtener el clima');
             }
 
-            const datosClima = await respuestaClima.json();\
+            const datosClima = await respuestaClima.json();
 
             setClima({
                 ciudad: ubicacion.name,
