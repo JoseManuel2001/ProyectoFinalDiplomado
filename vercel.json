@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/api/clima",
+      "destination": "https://www.7timer.info/bin/api.pl"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

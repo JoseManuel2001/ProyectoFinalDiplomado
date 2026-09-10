@@ -160,7 +160,6 @@ const Clima = () => {
 
             const ubicacion = datosCiudad.results[0];
 
-            // Consultar 7Timer
             const respuestaClima = await fetch(
                 `/api/clima?lon=${ubicacion.longitude}&lat=${ubicacion.latitude}&product=civil&output=json`
             );
@@ -169,7 +168,7 @@ const Clima = () => {
                 throw new Error('No se pudo obtener el clima');
             }
 
-            const datosClima = await respuestaClima.json();
+            const datosClima = await respuestaClima.json();\
 
             setClima({
                 ciudad: ubicacion.name,
