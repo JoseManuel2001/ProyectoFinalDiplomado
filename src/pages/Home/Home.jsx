@@ -3,6 +3,7 @@ import Footer from '../../components/Footer/Footer';
 import habitaciones from '../../data/habitaciones.json';
 import './Home.css';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const services = [
   {
@@ -30,61 +31,69 @@ const services = [
     icon: '♙',
     title: 'Intranet',
     description: 'Acceso exclusivo para visitantes registrados.',
-    link: '/intranet',
+    link: '/login',
     action: 'Iniciar sesión',
   },
 ];
 
-const rooms = [
-  {
-    name: 'Deluxe Twin',
-    image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=85',
-    tag: 'CON BALCÓN',
-    guests: '2 huéspedes',
-    beds: '2 camas individuales',
-  },
-  {
-    name: 'Premium King',
-    image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=900&q=85',
-    tag: 'MÁS POPULAR',
-    guests: '3 huéspedes',
-    beds: '1 cama King Size',
-  },
-  {
-    name: 'Suite Familiar',
-    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=85',
-    tag: 'FAMILIAR',
-    guests: '4 huéspedes',
-    beds: '2 camas matrimoniales',
-  },
-];
-
-const drinks = [
-  ['Margarita Clásica', '4 ingredientes', 'https://images.unsplash.com/photo-1556855810-ac404aa91e85?auto=format&fit=crop&w=600&q=85'],
-  ['Mojito Tropical', '5 ingredientes', 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=600&q=85'],
-  ['Piña Colada', '5 ingredientes', 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=600&q=85'],
-  ['Sunset Spritz', '4 ingredientes', 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=85'],
-  ['Blue Ocean', '4 ingredientes', 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=85'],
-];
-
 function Home() {
+  const [bebidas, setBebidas] = useState([]);
 
   useEffect(() => {
-    // Simulación de carga de datos desde un archivo JSON
-    const cargarDatos = async () => {
-      try {
-        // Aquí podrías hacer una solicitud fetch si los datos estuvieran en un servidor
-        // const response = await fetch('/data/habitaciones.json');
-        // const data = await response.json();
-        // setRooms(data);
-        console.log('Datos de habitaciones cargados:', habitaciones);
-      } catch (error) {
-        console.error('Error al cargar los datos de habitaciones:', error);
-      }
+    const obtenerBebidas = async () => {
+      const bebidas = await obtenerBebidasRandom();
+      console.log('Bebidas obtenidas:', bebidas);
+      const bebidasConIngredientes = await Promise.all(
+        bebidas.map(async (bebida) => {
+          const ingredientes = [];
+          for (let i = 1; i <= 15; i++) {
+            const ingrediente = bebida[`strIngredient${i}`];
+            if (ingrediente) {
+              ingredientes.push(ingrediente);
+            }
+          }
+          return { ...bebida, ingredientes, cantidadIngredientes: ingredientes.length };
+        })
+      );
+      const bebidasSinRepeticion = comprobarRepeticionBebidas(bebidasConIngredientes);
+      setBebidas(bebidasSinRepeticion);
     };
-
-    cargarDatos();
+    
+    obtenerBebidas();
   }, []);
+
+  const obtenerBebidasRandom = async () => {
+  try {
+    const peticiones = Array.from({ length: 5 }, () =>
+      fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+    );
+
+    const respuestas = await Promise.all(peticiones);
+
+    const datos = await Promise.all(
+      respuestas.map((respuesta) => respuesta.json())
+    );
+
+    const bebidas = datos.map((dato) => dato.drinks[0]);
+
+    return bebidas;
+  } catch (error) {
+    console.error("Error al obtener bebidas:", error);
+    return [];
+  }
+};
+
+const comprobarRepeticionBebidas = (bebidas) => {
+  const ids = new Set();
+  return bebidas.filter((bebida) => {
+    if (ids.has(bebida.idDrink)) {
+      return false;
+    }
+    ids.add(bebida.idDrink);
+    return true;
+  });
+};
+
 
   return (
     <main className="home">
@@ -172,9 +181,9 @@ function Home() {
           <a className="all-link" href="/bebidas">Ver todas las bebidas →</a>
         </div>
         <div className="drinks-grid">
-          {drinks.map(([name, ingredients, image]) => (
-            <a className="drink-card" href="/bebidas" key={name} style={{ backgroundImage: `linear-gradient(0deg, rgba(0,0,0,.82), rgba(0,0,0,.05) 75%), url(${image})` }}>
-              <div><h3>{name}</h3><span>♧ &nbsp;{ingredients}</span></div>
+          {bebidas.map((bebida) => (
+            <a className="drink-card" href="/bebidas" key={bebida.strDrink} style={{ backgroundImage: `linear-gradient(0deg, rgba(0,0,0,.82), rgba(0,0,0,.05) 75%), url(${bebida.strDrinkThumb})` }}>
+              <div><h3>{bebida.strDrink}</h3><span>♧ &nbsp;{bebida.cantidadIngredientes} ingredientes</span></div>
             </a>
           ))}
         </div>

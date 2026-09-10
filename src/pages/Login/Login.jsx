@@ -20,7 +20,6 @@ function Login() {
     setError('');
     setCargando(true);
 
-    // Simulamos una pequeña validación
     setTimeout(() => {
 
       const resultado = iniciarSesion(usuario, password);
@@ -32,12 +31,8 @@ function Login() {
       }
 
       setCargando(false);
-
-      // Por ahora mostramos un mensaje.
-      // Después lo conectaremos con la página Intranet.
       alert(`¡Bienvenido, ${usuario}!`);
 
-      // Cuando tengas React Router:
        navigate('/');
     }, 500);
   };
@@ -45,9 +40,6 @@ function Login() {
   return (
     <main className="login-page">
 
-      {/* =========================================
-          IMAGEN IZQUIERDA
-      ========================================= */}
 
       <section className="login-image">
         <div className="login-overlay">
@@ -79,10 +71,6 @@ function Login() {
         </div>
       </section>
 
-
-      {/* =========================================
-          PANEL DERECHO
-      ========================================= */}
       <section className="login-form-section">
         <div className="login-card">
 
@@ -105,9 +93,7 @@ function Login() {
             <br />
             GAMAR GO Resort
           </p>
-          {/* FORMULARIO */}
           <form onSubmit={handleSubmit}>
-            {/* USUARIO */}
             <div className="input-group">
               <label htmlFor="usuario">
                 Usuario
@@ -129,7 +115,6 @@ function Login() {
               </div>
             </div>
 
-            {/* CONTRASEÑA */}
             <div className="input-group">
               <label htmlFor="password">
                 Contraseña
@@ -164,14 +149,12 @@ function Login() {
                 </button>
               </div>
             </div>
-            {/* MENSAJE DE ERROR */}
             {error && (
               <p className="login-error">
                 {error}
               </p>
             )}
 
-            {/* OPCIONES */}
             <div className="login-options">
               <label>
                 <input
@@ -195,7 +178,6 @@ function Login() {
                 ¿Olvidaste tu contraseña?
               </a>
             </div>
-            {/* BOTON INICIAR SESION */}
             <button
               type="submit"
               className="login-button"
@@ -206,13 +188,11 @@ function Login() {
                 : 'Iniciar sesión'}
               <span>→</span>
             </button>
-            {/* DIVISOR */}
             <div className="login-divider">
               <span />
               <b>o</b>
               <span />
             </div>
-            {/* MICROSOFT */}
             <button
               type="button"
               className="microsoft-button"
@@ -227,7 +207,6 @@ function Login() {
             </button>
           </form>
 
-          {/* FOOTER DEL LOGIN */}
           <div className="login-footer">
             <span>♙</span>
             Acceso exclusivo para visitantes registrados.

@@ -1,0 +1,661 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --navy: #071b2d;
+  --navy-light: #102d43;
+  --turquoise: #28b8b2;
+  --turquoise-dark: #159b98;
+  --gold: #d7b56d;
+  --cream: #f7f5ef;
+  --white: #ffffff;
+  --text: #273746;
+  --muted: #78838b;
+  --border: #e8e8e3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bebidas-page {
+  min-height: 100vh;
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* HERO */
+
+.bebidas-hero {
+  min-height: 540px;
+  position: relative;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(4, 20, 34, 0.82),
+      rgba(4, 20, 34, 0.32),
+      rgba(4, 20, 34, 0.08)
+    ),
+    url('../../assets/bar-hero.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.bebidas-hero-overlay {
+  width: 100%;
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+}
+
+.bebidas-hero-content {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+  padding-top: 55px;
+}
+
+.bebidas-eyebrow,
+.section-kicker {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.bebidas-hero h1 {
+  margin: 22px 0 18px;
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -3px;
+}
+
+.bebidas-hero h1 span {
+  color: var(--turquoise);
+  font-style: italic;
+}
+
+.bebidas-hero p {
+  max-width: 460px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* CONTENT */
+
+.bebidas-content {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+  padding: 20px 0 110px;
+}
+
+.bebidas-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.bebidas-heading h2 {
+  max-width: 620px;
+  margin: 16px 0 18px;
+  color: var(--navy);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.bebidas-heading h2 span {
+  color: var(--turquoise);
+  font-style: italic;
+}
+
+.bebidas-heading p {
+  max-width: 530px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.bebidas-decoration {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--gold);
+  text-align: right;
+}
+
+.bebidas-decoration span {
+  font-size: 2.8rem;
+}
+
+.bebidas-decoration small {
+  color: var(--navy);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.7;
+}
+
+/* TOOLBAR */
+
+.bebidas-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.categorias {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.categoria-button {
+  border: 1px solid transparent;
+  border-radius: 30px;
+  padding: 11px 17px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.categoria-button:hover {
+  color: var(--turquoise-dark);
+  border-color: rgba(40, 184, 178, 0.3);
+}
+
+.categoria-button.active {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.bebidas-search {
+  min-width: 240px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: var(--white);
+}
+
+.bebidas-search span {
+  color: var(--turquoise);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.bebidas-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+.bebidas-search input::placeholder {
+  color: #a3aaad;
+}
+
+.bebidas-resultados {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0 24px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.limpiar-busqueda {
+  border: none;
+  background: transparent;
+  color: var(--turquoise-dark);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+/* CARDS */
+
+.bebidas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.bebida-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--white);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.bebida-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 40px rgba(7, 27, 45, 0.12);
+}
+
+.bebida-image-container {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+  background: #e7e5dc;
+}
+
+.bebida-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.bebida-card:hover .bebida-image {
+  transform: scale(1.06);
+}
+
+.bebida-category {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 7px 11px;
+  border-radius: 3px;
+  background: rgba(7, 27, 45, 0.84);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.bebida-favorite {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--navy);
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: all 0.25s ease;
+}
+
+.bebida-favorite:hover {
+  background: var(--turquoise);
+  color: var(--white);
+}
+
+.bebida-card-content {
+  padding: 22px 20px 20px;
+}
+
+.bebida-card-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bebida-card h3 {
+  margin: 0;
+  color: var(--navy);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+}
+
+.bebida-price {
+  color: var(--turquoise-dark);
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.bebida-card p {
+  min-height: 68px;
+  margin: 13px 0 22px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.7;
+  max-height: 68px;
+  overflow: auto;
+}
+
+.bebida-order-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 0 0;
+  border: none;
+  border-top: 1px solid var(--border);
+  background: transparent;
+  color: var(--navy);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.bebida-order-button span {
+  color: var(--turquoise);
+  font-size: 1.2rem;
+  transition: transform 0.25s ease;
+}
+
+.bebida-order-button:hover span {
+  transform: translateX(5px);
+}
+
+/* EMPTY */
+
+.bebidas-empty {
+  padding: 80px 20px;
+  border: 1px dashed #d6d9d4;
+  text-align: center;
+}
+
+.bebidas-empty > span {
+  font-size: 3rem;
+}
+
+.bebidas-empty h3 {
+  margin: 20px 0 10px;
+  color: var(--navy);
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+}
+
+.bebidas-empty p {
+  margin: 0 0 25px;
+  color: var(--muted);
+}
+
+.bebidas-empty button {
+  border: none;
+  border-radius: 30px;
+  padding: 13px 22px;
+  background: var(--turquoise);
+  color: var(--white);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+/* BANNER */
+
+.bebidas-banner {
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 27, 45, 0.96),
+      rgba(7, 27, 45, 0.68)
+    ),
+    url('/images/bebidas-banner.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.bebidas-banner-content {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+}
+
+.bebidas-banner h2 {
+  margin: 18px 0;
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.bebidas-banner p {
+  max-width: 440px;
+  margin: 0 0 30px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+}
+
+.bebidas-banner-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  padding: 15px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.bebidas-banner-button span {
+  color: var(--turquoise);
+  font-size: 1.3rem;
+}
+
+.bebidas-banner-button:hover {
+  border-color: var(--turquoise);
+  background: var(--turquoise);
+}
+
+.bebidas-banner-button:hover span {
+  color: var(--white);
+}
+
+/* FOOTER */
+
+.bebidas-footer {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 35px 5%;
+  background: #041421;
+  color: var(--white);
+}
+
+.bebidas-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-brand-mark {
+  color: var(--gold);
+  font-size: 2.2rem;
+}
+
+.bebidas-footer-brand strong {
+  display: block;
+  font-size: 1.05rem;
+  letter-spacing: 2px;
+}
+
+.bebidas-footer-brand small {
+  display: block;
+  margin-top: 4px;
+  color: var(--gold);
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+}
+
+.bebidas-footer p {
+  margin: 0;
+  color: var(--turquoise);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.footer-copy {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.72rem;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .bebidas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .bebidas-hero,
+  .bebidas-hero-overlay {
+    min-height: 470px;
+  }
+
+  .bebidas-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .bebidas-decoration {
+    display: none;
+  }
+
+  .bebidas-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .bebidas-search {
+    width: 100%;
+  }
+
+  .bebidas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bebidas-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .bebidas-content {
+    padding: 60px 0 75px;
+  }
+
+  .bebidas-hero-content {
+    padding-top: 30px;
+  }
+
+  .bebidas-hero h1 {
+    font-size: 3.2rem;
+    letter-spacing: -1px;
+  }
+
+  .bebidas-hero p {
+    font-size: 0.92rem;
+  }
+
+  .bebidas-heading h2 {
+    font-size: 2.4rem;
+  }
+
+  .categorias {
+    gap: 7px;
+  }
+
+  .categoria-button {
+    padding: 9px 12px;
+    font-size: 0.75rem;
+  }
+
+  .bebidas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bebida-image-container {
+    height: 260px;
+  }
+
+  .bebidas-banner {
+    min-height: 400px;
+  }
+
+  .bebidas-banner h2 {
+    font-size: 2.7rem;
+  }
+}
+.bebidas-loading {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 24px;
+  background: #f7f5ef;
+}
+
+.bebidas-spinner {
+  width: 52px;
+  height: 52px;
+  border: 4px solid rgba(15, 41, 61, 0.15);
+  border-top-color: #16a6a1;
+  border-radius: 50%;
+  animation: bebidas-spin 0.8s linear infinite;
+  margin-bottom: 24px;
+}
+
+.bebidas-loading h3 {
+  margin: 0 0 10px;
+  color: #0f293d;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+}
+
+.bebidas-loading p {
+  margin: 0;
+  color: #71808c;
+  font-size: 0.95rem;
+}
+
+@keyframes bebidas-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
