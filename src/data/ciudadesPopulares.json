@@ -1,0 +1,44 @@
+[
+    {
+        "nombre": "Toluca de Lerdo",
+        "pais": "México",
+        "imagen":
+            "https://media.istockphoto.com/id/2198950176/es/foto/hermosa-vista-del-volc%C3%A1n-nevado-nevado-de-toluca-al-amanecer-en-la-hora-dorada-y-las-nubes-en.jpg?s=612x612&w=0&k=20&c=eNrw2drEFm62nF0urdEXLooQ2n87KvZa78jjqoEdMjE="
+    },
+    {
+        "nombre": "Ciudad de México",
+        "pais": "México",
+        "imagen":
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS_PmDKg-SP-bNv3dyHanGd2eqX2F-QyCdGMBiKLvitiflxZH56pm7AQ5q&s=10"
+    },
+    {
+        "nombre": "Cancún",
+        "pais": "México",
+        "imagen":
+            "https://www.civitatis.com/blog/wp-content/uploads/2024/11/shutterstock_1903587787-scaled.jpg"
+    },
+    {
+        "nombre": "Monterrey",
+        "pais": "México",
+        "imagen":
+            "https://static.nmas.com.mx/Nmas/cms/1772091471063-cerro-de-la-silla-en-la-ciudad-de-monterrey-nuevo-le-n-foto-n.jpg"
+    },
+    {
+        "nombre": "Guadalajara",
+        "pais": "México",
+        "imagen":
+            "https://cdn.getyourguide.com/image/format=avif%2Cfit=cover%2Cgravity=auto%2Cquality=60/dam/iStock-2193434964-2-edited-HEADER_MOBILE-oWkihz5x.jpg"
+    },
+    {
+        "nombre": "Madrid",
+        "pais": "España",
+        "imagen":
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5iQMmOuKi7SdHJTViZwS40hs-C45yV1YCJD5das6TkKwtlSktmBeQI_nA&s=10"
+    },
+    {
+        "nombre": "Nueva York",
+        "pais": "Estados Unidos",
+        "imagen":
+            "https://i.natgeofe.com/n/7bcd6ba0-820e-4d6c-bcd3-71940e1aedcb/01nyskyline2048.jpg"
+    }
+]

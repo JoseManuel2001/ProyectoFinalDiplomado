@@ -122,25 +122,25 @@ function Navbar() {
 
               <Link
                 className="dropdown-item"
-                to="/intranet"
+                to="/habitaciones"
                 onClick={() => setMenuAbierto(false)}
               >
-                <span>▦</span>
+                <span>▱</span>
                 <div>
-                  <strong>Panel principal</strong>
-                  <small>Accede a la intranet</small>
+                  <strong>Mis habitaciones</strong>
+                  <small>Consultar mis habitaciones</small>
                 </div>
               </Link>
 
               <Link
                 className="dropdown-item"
-                to="/perfil"
+                to="/bebidas"
                 onClick={() => setMenuAbierto(false)}
               >
-                <span>♙</span>
+                <span>♜</span>
                 <div>
-                  <strong>Mi perfil</strong>
-                  <small>Consulta tus datos</small>
+                  <strong>Mis bebidas</strong>
+                  <small>Consulta mis bebidas</small>
                 </div>
               </Link>
 
