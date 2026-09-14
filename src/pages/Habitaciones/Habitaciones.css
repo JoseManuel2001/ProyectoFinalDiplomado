@@ -1,0 +1,1253 @@
+.habitaciones-page {
+  min-height: 100vh;
+
+  position: relative;
+
+  overflow-x: hidden;
+
+  color: white;
+
+  font-family: 'Poppins', sans-serif;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 16, 27, 0.78),
+      rgba(2, 13, 21, 0.98)
+    ),
+    url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=2400&q=90');
+
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+
+/* OVERLAY */
+
+.habitaciones-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 75% 5%,
+      rgba(230, 174, 48, 0.16),
+      transparent 32%
+    );
+
+  pointer-events: none;
+}
+
+
+/* HEADER */
+
+.habitaciones-header {
+
+  height: 100px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  position: relative;
+
+  z-index: 10;
+
+}
+
+
+.habitaciones-home {
+
+  position: absolute;
+
+  left: 28px;
+
+  top: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 12px 22px;
+
+  border-radius: 30px;
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  background: rgba(3, 18, 29, 0.78);
+
+  backdrop-filter: blur(12px);
+
+  color: white;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+}
+
+
+.habitaciones-home:hover {
+
+  background: #eab435;
+
+  color: #07131c;
+
+  transform: translateY(-2px);
+
+}
+
+
+/* LOGO */
+
+.habitaciones-logo {
+
+  text-align: center;
+
+}
+
+
+.habitaciones-logo-icon {
+
+  color: #eab435;
+
+  font-size: 42px;
+
+  line-height: 35px;
+
+}
+
+
+.habitaciones-logo-name {
+
+  color: #eab435;
+
+  font-family: Georgia, serif;
+
+  font-size: 34px;
+
+  letter-spacing: 3px;
+
+}
+
+
+.habitaciones-logo-subtitle {
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+
+  color: #d2d2d2;
+
+}
+
+
+/* CONTAINER */
+
+.habitaciones-container {
+
+  width: min(1480px, 94%);
+
+  margin: auto;
+
+  position: relative;
+
+  z-index: 2;
+
+  padding-bottom: 60px;
+
+}
+
+
+/* HERO */
+
+.habitaciones-hero {
+
+  min-height: 260px;
+
+  display: flex;
+
+  align-items: center;
+
+}
+
+
+.habitaciones-eyebrow {
+
+  color: #e8b234;
+
+  letter-spacing: 5px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  margin-bottom: 12px;
+
+}
+
+
+.habitaciones-hero h1 {
+
+  font-family: Georgia, serif;
+
+  font-weight: 400;
+
+  font-size: clamp(45px, 5vw, 70px);
+
+  line-height: 1.02;
+
+  margin: 0;
+
+}
+
+
+.habitaciones-hero h1 span {
+
+  color: #eab438;
+
+}
+
+
+.habitaciones-description {
+
+  max-width: 650px;
+
+  color: #c6ced2;
+
+  font-size: 17px;
+
+  line-height: 1.6;
+
+  margin-top: 20px;
+
+}
+
+
+/* BUSCADOR */
+
+.reservacion-search {
+
+  min-height: 78px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    1fr
+    auto;
+
+  align-items: stretch;
+
+  border: 1px solid rgba(255,255,255,0.18);
+
+  border-radius: 18px;
+
+  background: rgba(3, 20, 31, 0.88);
+
+  backdrop-filter: blur(15px);
+
+  overflow: hidden;
+
+}
+
+
+.search-field {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 14px 22px;
+
+  border-right: 1px solid rgba(255,255,255,0.1);
+
+}
+
+
+.search-field > svg {
+
+  color: #eab435;
+
+  font-size: 20px;
+
+}
+
+
+.search-field span {
+
+  display: block;
+
+  color: #9da8ae;
+
+  font-size: 12px;
+
+  margin-bottom: 3px;
+
+}
+
+
+.search-field input,
+.search-field select {
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-family: inherit;
+
+}
+
+
+.search-field input {
+
+  color-scheme: dark;
+
+}
+
+
+.search-field select option {
+
+  background: #071724;
+
+  color: white;
+
+}
+
+
+.buscar-habitaciones {
+
+  border: none;
+
+  margin: 9px;
+
+  padding: 0 28px;
+
+  border-radius: 13px;
+
+  background: #edb632;
+
+  color: #07131c;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+}
+
+
+.buscar-habitaciones:hover {
+
+  background: #ffd15a;
+
+  transform: scale(1.02);
+
+}
+
+
+/* AMENIDADES */
+
+.amenidades-bar {
+
+  margin-top: 25px;
+
+  min-height: 65px;
+
+  padding: 0 20px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  border-radius: 15px;
+
+  background: rgba(3, 20, 31, 0.78);
+
+  backdrop-filter: blur(12px);
+
+}
+
+
+.amenidad {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #bfc7ca;
+
+  font-size: 13px;
+
+}
+
+
+.amenidad-icon {
+
+  color: #eab435;
+
+  font-size: 18px;
+
+}
+
+
+/* HABITACIONES */
+
+.habitaciones-section {
+
+  margin-top: 22px;
+
+}
+
+
+.habitaciones-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 14px;
+
+}
+
+
+.habitacion-card {
+
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  background: rgba(3, 20, 31, 0.94);
+
+  transition: 0.35s;
+
+}
+
+
+.habitacion-card:hover {
+
+  transform: translateY(-6px);
+
+  border-color: rgba(234,180,53,0.55);
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.35);
+
+}
+
+
+/* IMAGE */
+
+.habitacion-image {
+
+  height: 205px;
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+
+.habitacion-image img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: 0.5s;
+
+}
+
+
+.habitacion-card:hover
+.habitacion-image img {
+
+  transform: scale(1.06);
+
+}
+
+
+.habitacion-badge {
+
+  position: absolute;
+
+  top: 13px;
+
+  left: 13px;
+
+  padding: 7px 13px;
+
+  border-radius: 20px;
+
+  background: #f0b72f;
+
+  color: #07131c;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+}
+
+
+/* CONTENT */
+
+.habitacion-content {
+
+  padding: 17px;
+
+}
+
+
+.habitacion-content h2 {
+
+  font-family: Georgia, serif;
+
+  font-size: 22px;
+
+  font-weight: 400;
+
+  margin: 0;
+
+}
+
+
+.habitacion-description {
+
+  margin: 6px 0 14px;
+
+  color: #aeb9be;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+}
+
+
+/* FEATURES */
+
+.habitacion-features {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr 1fr;
+
+  gap: 8px;
+
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+
+}
+
+
+.habitacion-features div {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: #c0c7ca;
+
+  font-size: 10px;
+
+}
+
+
+.habitacion-features svg {
+
+  color: #eab435;
+
+  flex-shrink: 0;
+
+}
+
+
+/* FOOTER */
+
+.habitacion-footer {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding-top: 15px;
+
+}
+
+
+.habitacion-price strong {
+
+  display: block;
+
+  font-size: 21px;
+
+}
+
+
+.habitacion-price span {
+
+  color: #929da2;
+
+  font-size: 10px;
+
+}
+
+
+.habitacion-details-btn {
+
+  border: none;
+
+  border-radius: 25px;
+
+  background: #eab435;
+
+  color: #07131c;
+
+  padding: 10px 17px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+}
+
+
+.habitacion-details-btn:hover {
+
+  background: #ffd15a;
+
+}
+
+
+/* BENEFICIOS */
+
+.beneficios-section {
+
+  margin-top: 28px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 15px;
+
+  background: rgba(3, 20, 31, 0.75);
+
+}
+
+
+.beneficio {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 22px;
+
+  border-right: 1px solid rgba(255,255,255,0.08);
+
+}
+
+
+.beneficio:last-child {
+
+  border-right: none;
+
+}
+
+
+.beneficio > span {
+
+  color: #f0b72f;
+
+  font-size: 30px;
+
+}
+
+
+.beneficio strong {
+
+  display: block;
+
+  font-family: Georgia, serif;
+
+  font-size: 15px;
+
+}
+
+
+.beneficio p {
+
+  color: #929da2;
+
+  font-size: 11px;
+
+  margin: 5px 0 0;
+
+}
+
+
+/* MODAL */
+
+.habitacion-modal-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 25px;
+
+  background: rgba(0,0,0,0.75);
+
+  backdrop-filter: blur(8px);
+
+}
+
+
+.habitacion-modal {
+
+  position: relative;
+
+  width: min(950px, 100%);
+
+  max-height: 90vh;
+
+  display: grid;
+
+  grid-template-columns: 45% 55%;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #071824;
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.5);
+
+}
+
+
+.modal-close {
+
+  position: absolute;
+
+  z-index: 5;
+
+  top: 15px;
+
+  right: 15px;
+
+  width: 38px;
+
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(0,0,0,0.6);
+
+  color: white;
+
+  cursor: pointer;
+
+}
+
+
+.modal-image {
+
+  min-height: 500px;
+
+}
+
+
+.modal-image img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+}
+
+
+.modal-content {
+
+  padding: 40px;
+
+  overflow-y: auto;
+
+}
+
+
+.modal-eyebrow {
+
+  color: #eab435;
+
+  letter-spacing: 3px;
+
+  font-size: 11px;
+
+}
+
+
+.modal-content h2 {
+
+  font-family: Georgia, serif;
+
+  font-size: 40px;
+
+  font-weight: 400;
+
+  margin: 8px 0 12px;
+
+}
+
+
+.modal-description {
+
+  color: #aeb8bd;
+
+  line-height: 1.6;
+
+}
+
+
+.modal-info {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 8px;
+
+  margin: 25px 0;
+
+}
+
+
+.modal-info div {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.04);
+
+  color: #c7ced1;
+
+  font-size: 11px;
+
+}
+
+
+.modal-info svg {
+
+  color: #eab435;
+
+  font-size: 17px;
+
+}
+
+
+.modal-content h3 {
+
+  font-family: Georgia, serif;
+
+  font-size: 20px;
+
+  font-weight: 400;
+
+}
+
+
+.modal-amenidades {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 10px;
+
+}
+
+
+.modal-amenidades div {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #bdc5c8;
+
+  font-size: 12px;
+
+}
+
+
+.modal-amenidades svg {
+
+  color: #eab435;
+
+}
+
+
+.modal-price {
+
+  margin-top: 30px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(255,255,255,0.1);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+}
+
+
+.modal-price strong {
+
+  font-size: 26px;
+
+}
+
+
+.modal-price span {
+
+  color: #8e999e;
+
+  font-size: 11px;
+
+}
+
+
+.modal-price button {
+
+  border: none;
+
+  border-radius: 25px;
+
+  padding: 12px 25px;
+
+  background: #eab435;
+
+  color: #07131c;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1150px) {
+
+  .habitaciones-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+  }
+
+  .amenidades-bar {
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    padding: 15px;
+
+  }
+
+  .beneficios-section {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+  }
+
+  .beneficio:nth-child(2) {
+
+    border-right: none;
+
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .habitaciones-header {
+
+    height: 120px;
+
+  }
+
+  .habitaciones-home {
+
+    top: 15px;
+
+    left: 15px;
+
+    padding: 9px 15px;
+
+  }
+
+  .habitaciones-logo-name {
+
+    font-size: 27px;
+
+  }
+
+  .habitaciones-hero {
+
+    min-height: 300px;
+
+  }
+
+  .habitaciones-hero h1 {
+
+    font-size: 45px;
+
+  }
+
+  .reservacion-search {
+
+    grid-template-columns: 1fr 1fr;
+
+  }
+
+  .search-field:nth-child(2) {
+
+    border-right: none;
+
+  }
+
+  .buscar-habitaciones {
+
+    grid-column: 1 / -1;
+
+    min-height: 55px;
+
+  }
+
+  .habitaciones-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .habitacion-image {
+
+    height: 240px;
+
+  }
+
+  .habitacion-modal {
+
+    grid-template-columns: 1fr;
+
+    max-height: 90vh;
+
+  }
+
+  .modal-image {
+
+    min-height: 220px;
+
+    max-height: 250px;
+
+  }
+
+}
+
+
+@media (max-width: 550px) {
+
+  .habitaciones-container {
+
+    width: 92%;
+
+  }
+
+  .habitaciones-hero h1 {
+
+    font-size: 38px;
+
+  }
+
+  .habitaciones-description {
+
+    font-size: 14px;
+
+  }
+
+  .reservacion-search {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .search-field {
+
+    border-right: none;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  }
+
+  .buscar-habitaciones {
+
+    grid-column: auto;
+
+  }
+
+  .amenidades-bar {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+  }
+
+  .beneficios-section {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .beneficio {
+
+    border-right: none;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  }
+
+  .beneficio:last-child {
+
+    border-bottom: none;
+
+  }
+
+  .habitacion-features {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .modal-content {
+
+    padding: 25px;
+
+  }
+
+  .modal-content h2 {
+
+    font-size: 30px;
+
+  }
+
+  .modal-info {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .modal-amenidades {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
