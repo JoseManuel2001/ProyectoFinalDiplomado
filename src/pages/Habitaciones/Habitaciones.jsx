@@ -601,87 +601,52 @@ const Habitaciones = () => {
               <strong>
                 Cancelación flexible
               </strong>
-
               <p>
                 Cambia tus planes sin preocupaciones.
               </p>
-
             </div>
-
           </div>
-
-
-
           <div className="beneficio">
-
             <span>
               ✓
             </span>
-
             <div>
-
               <strong>
                 Pago seguro
               </strong>
-
               <p>
                 Tus datos siempre protegidos.
               </p>
-
             </div>
-
           </div>
-
-
-
           <div className="beneficio">
-
             <span>
               ♫
             </span>
-
             <div>
-
               <strong>
                 Atención personalizada
               </strong>
-
               <p>
                 Estamos contigo en cada paso.
               </p>
-
             </div>
-
           </div>
-
-
         </section>
-
-
       </main>
-
-
-
-      {/* MODAL */}
-
       {habitacionSeleccionada && (
-
         <div
           className="habitacion-modal-overlay"
           onClick={() =>
             setHabitacionSeleccionada(null)
           }
         >
-
-
           <div
             className="habitacion-modal"
             onClick={(e) =>
               e.stopPropagation()
             }
           >
-
-
             <button
               className="modal-close"
               onClick={() =>
@@ -690,159 +655,90 @@ const Habitaciones = () => {
             >
 
               <FaTimes />
-
             </button>
-
-
-
             <div className="modal-image">
 
               <img
                 src={habitacionSeleccionada.imagen}
                 alt={habitacionSeleccionada.nombre}
               />
-
             </div>
-
-
-
             <div className="modal-content">
-
-
               <p className="modal-eyebrow">
                 GAMAR GO RESORT
               </p>
-
-
               <h2>
                 {habitacionSeleccionada.nombre}
               </h2>
-
-
               <p className="modal-description">
-
                 {habitacionSeleccionada.descripcion}
-
               </p>
-
-
-
               <div className="modal-info">
-
-
                 <div>
-
                   <FaUsers />
-
                   <span>
                     {habitacionSeleccionada.capacidad}
                   </span>
-
                 </div>
-
-
                 <div>
-
                   <FaBed />
-
                   <span>
                     {habitacionSeleccionada.cama}
                   </span>
 
                 </div>
-
-
                 <div>
-
                   <FaRulerCombined />
-
                   <span>
                     {habitacionSeleccionada.metros}
                   </span>
 
                 </div>
-
-
               </div>
-
-
-
               <h3>
                 Amenidades
               </h3>
-
-
               <div className="modal-amenidades">
-
                 {habitacionSeleccionada.amenidades.map(
                   (amenidad) => (
 
                     <div
                       key={amenidad}
                     >
-
                       <FaCheck />
-
                       {amenidad}
-
                     </div>
-
                   )
                 )}
 
               </div>
-
-
-
               <div className="modal-price">
-
                 <div>
-
                   <strong>
                     ${formatoPrecio(
                       habitacionSeleccionada.precio
                     )}
                   </strong>
-
                   <span>
                     MXN / noche
                   </span>
-
                 </div>
-
-
                 <button
                   onClick={() => {
-
                     alert(
                       `Has seleccionado ${habitacionSeleccionada.nombre}`
                     );
-
                   }}
                 >
-
                   Reservar
-
                 </button>
-
               </div>
-
-
             </div>
-
-
           </div>
-
-
         </div>
-
       )}
-
-
     </div>
-
   );
-
 };
 
 

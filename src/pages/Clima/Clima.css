@@ -33,7 +33,6 @@
   pointer-events: none;
 }
 
-/* HEADER */
 
 .clima-header {
   width: 100%;
@@ -83,7 +82,6 @@
   font-size: 17px;
 }
 
-/* LOGO */
 
 .clima-logo {
   text-align: center;
@@ -113,8 +111,6 @@
   margin-top: 2px;
 }
 
-/* CONTAINER */
-
 .clima-container {
   width: min(1450px, 94%);
   margin: auto;
@@ -125,7 +121,6 @@
   padding-bottom: 60px;
 }
 
-/* HERO */
 
 .clima-hero {
   text-align: center;
@@ -164,7 +159,6 @@
   margin-top: 12px;
 }
 
-/* SEARCH */
 
 .clima-search {
   width: min(800px, 95%);
