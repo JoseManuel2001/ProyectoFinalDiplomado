@@ -313,6 +313,11 @@
   color: var(--white);
 }
 
+.bebida-card .bebida-favorite.active {
+  background: var(--turquoise);
+  color: var(--white);
+}
+
 .bebida-card-content {
   padding: 22px 20px 20px;
 }

@@ -5,7 +5,8 @@ import Login from './pages/Login/Login';
 import Bebidas from './pages/Bebidas/Bebidas';  
 import Clima from './pages/Clima/Clima';
 import Habitaciones from './pages/Habitaciones/Habitaciones';
-
+import MisBebidas from './pages/MisBebidas/Misbebidas';
+import LoginRedirect from './components/auth/LoginRedirect';
 
 function App() {
   return (
@@ -13,10 +14,11 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<LoginRedirect><Login /></LoginRedirect>} />
         <Route path="/bebidas" element={<Bebidas />} />
         <Route path="/clima" element={<Clima />} />
         <Route path="/habitaciones" element={<Habitaciones />} />
+        <Route path="/mis-bebidas" element={<MisBebidas />} />
       </Routes>
     </BrowserRouter>
   );

@@ -4,11 +4,14 @@ import './index.css'
 import App from './App.jsx'
 
 import { AuthProvider } from './components/context/AuthContext.jsx'
+import { GamarGoProvider } from './context/GamarGoContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <App />
+      <GamarGoProvider>
+        <App />
+      </GamarGoProvider>
     </AuthProvider>
-  </StrictMode>,
+  </StrictMode>
 )

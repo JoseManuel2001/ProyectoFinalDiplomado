@@ -2,6 +2,7 @@ import './Navbar.css';
 import { useAuth } from '../../components/context/AuthContext.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
+import { useGamarGo } from '../../context/GamarGoContext.jsx';
 
 function Navbar() {
   const { usuario, cerrarSesion } = useAuth();
@@ -9,6 +10,7 @@ function Navbar() {
 
   const [menuAbierto, setMenuAbierto] = useState(false);
   const menuRef = useRef(null);
+  const { bebidasFavoritas, reservaciones } = useGamarGo();
 
   useEffect(() => {
     const cerrarMenu = (event) => {
@@ -86,9 +88,8 @@ function Navbar() {
       ) : (
         <div className="user-menu-container" ref={menuRef}>
           <button
-            className={`user-menu-button ${
-              menuAbierto ? 'user-menu-button-open' : ''
-            }`}
+            className={`user-menu-button ${menuAbierto ? 'user-menu-button-open' : ''
+              }`}
             onClick={() => setMenuAbierto(!menuAbierto)}
           >
             <span className="user-avatar">
@@ -129,18 +130,30 @@ function Navbar() {
                 <div>
                   <strong>Mis habitaciones</strong>
                   <small>Consultar mis habitaciones</small>
+                  <span className="favoritos">
+                    {reservaciones.length}{' '}
+                    {reservaciones.length === 1
+                      ? 'reservación'
+                      : 'reservaciones'}
+                  </span>
                 </div>
               </Link>
 
               <Link
                 className="dropdown-item"
-                to="/bebidas"
+                to="/mis-bebidas"
                 onClick={() => setMenuAbierto(false)}
               >
                 <span>♜</span>
                 <div>
                   <strong>Mis bebidas</strong>
                   <small>Consulta mis bebidas</small>
+                  <span className="favoritos">
+                      {bebidasFavoritas.length}{' '}
+                      {bebidasFavoritas.length === 1
+                        ? 'favorito'
+                        : 'favoritos'}
+                  </span>
                 </div>
               </Link>
 

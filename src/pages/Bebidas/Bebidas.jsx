@@ -2,6 +2,7 @@ import { useMemo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Bebidas.css';
 import DetalleBebida from '../../components/DetalleBebida/DetalleBebida';
+import { useGamarGo } from '../../context/GamarGoContext';
 
 function Bebidas() {
     const [categorias, setCategorias] = useState([]);
@@ -13,6 +14,11 @@ function Bebidas() {
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState('');
     const [bebidaSeleccionada, setBebidaSeleccionada] = useState(null);
+    const {
+        agregarFavorito,
+        eliminarFavorito,
+        esFavorito,
+    } = useGamarGo();
 
     const bebidasFiltradas = bebidas.filter((bebida) => {
         const coincideCategoria =
@@ -217,8 +223,15 @@ function Bebidas() {
                                     </span>
 
                                     <button
-                                        className="bebida-favorite"
+                                        className={esFavorito(bebida.id) ? "bebida-favorite active" : "bebida-favorite"}
                                         aria-label={`Agregar ${bebida.nombre} a favoritos`}
+                                        onClick={() => {
+                                            if (esFavorito(bebida.id)) {
+                                                eliminarFavorito(bebida.id);
+                                            } else {
+                                                agregarFavorito(bebida);
+                                            }
+                                        }}
                                     >
                                         ♡
                                     </button>
